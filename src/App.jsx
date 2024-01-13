@@ -114,8 +114,8 @@ export default function Game() {
       <li key={move}>
         <button
           className={`${
-            currentMove === move && "bg-emerald-600 text-slate-950"
-          } bg-black/20 text-xs text-slate-400 text-center p-1 duration-500 hover:bg-emerald-600 w-full capitalize mt-1`}
+            currentMove === move && "bg-sky-600 text-slate-950"
+          } bg-black/20 text-xs text-slate-400 text-center p-1 duration-500 hover:bg-sky-600 w-full capitalize mt-1`}
           onClick={() => jumpTo(move)}
         >
           {description}
@@ -124,29 +124,32 @@ export default function Game() {
     );
   });
   return (
-    <div className="flex mt-5 justify-center gap-4">
-      <div>
-        <Board
-          player={player}
-          square={currentSquare}
-          onPlay={handlePlay}
-          totalMove={history.length}
-        />
-      </div>
-      <div className="w-44 bg-emerald-700/20 p-2 rounded-sm flex flex-col justify-between">
-        <div className="bg-emerald-400 text-center text-sm font-semibold p-2 rounded">
-          Back to The History
+    <div>
+      <div className="text-2xl text-center text-filter">Tic-Tac-Toe</div>
+      <div className="flex mt-5 justify-center gap-4">
+        <div>
+          <Board
+            player={player}
+            square={currentSquare}
+            onPlay={handlePlay}
+            totalMove={history.length}
+          />
         </div>
-        <div className="h-full">
-          <ol className="mt-2">{move}</ol>
+        <div className="w-44 bg-emerald-700/20 p-2 rounded-sm flex flex-col justify-between">
+          <div className="bg-emerald-400 text-center text-sm font-semibold p-2 rounded">
+            Back to The History
+          </div>
+          <div className="h-full">
+            <ol className="mt-2">{move}</ol>
+          </div>
+          <button
+            className={` bg-red-400/50 text-xs text-slate-800 text-center p-1 duration-300 hover:bg-rose-400 w-full capitalize mt-1`}
+            onClick={() => setHistory([[Array(9).fill(null)]])}
+          >
+            Reset
+          </button>
         </div>
-        <button
-          className={` bg-red-400/50 text-xs text-slate-800 text-center p-1 duration-300 hover:bg-rose-400 w-full capitalize mt-1`}
-          onClick={() => setHistory([[Array(9).fill(null)]])}
-        >
-          Reset
-        </button>
-      </div>
+      </div>{" "}
     </div>
   );
 }

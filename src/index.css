@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .text-filter {
+  filter: drop-shadow(0px 0px 10px rgb(23, 216, 219));
+  padding: 4px;
+  border-radius: 50px;
+  animation: anim 2s linear infinite;
+}
+@keyframes anim {
+  from {
+    filter: drop-shadow(0px 10px 10px rgb(23, 216, 219));
+  }
+  to {
+    filter: drop-shadow(10px 0px 20px rgb(23, 216, 219));
+  }
+} */
+.text-filter {
+  /* box-shadow: inset 0px 0px 10px rgb(23, 216, 219); */
+  /* padding: 4px; */
+  position: relative;
+  transition: all 2s ease-in-out;
+  overflow: hidden;
+  animation: anim 7s linear infinite;
+  color: aqua;
+  z-index: 2;
+}
+.text-filter::before {
+  content: "";
+  height: 0.5rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #1abfe838;
+  position: absolute;
+  animation: rotate 10s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  z-index: 1;
+}
+.text-filter::after {
+  content: "";
+  height: 0.5rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #1ae8bf38;
+  position: absolute;
+  animation: rotate 10s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  z-index: 1;
+}
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+    transform: rotate3d(10deg);
+  }
+  to {
+    rotate: 360deg;
+    transform: skewX(10px);
+  }
+}
+@keyframes anim {
+  0%,
+  100% {
+    /* box-shadow: inset 0px 0px 10px rgb(23, 216, 219); */
+    /* letter-spacing: 15px; */
+    font-weight: 300;
+  }
+  20%,
+  80% {
+    /* box-shadow: inset 0px 0px 50px rgb(23, 219, 203); */
+    letter-spacing: 15px;
+    border-radius: 50px;
+  }
+}
