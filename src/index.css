@@ -34,7 +34,7 @@
   bottom: 0;
   background: #1abfe838;
   position: absolute;
-  animation: rotate 10s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  animation: rotate 10s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s infinite;
   z-index: 1;
 }
 .text-filter::after {
